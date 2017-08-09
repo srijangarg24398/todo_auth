@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+<%= puts "yo" %>
+	<div text-align="right">
+		<%= User.get(user_id).email %>
+		<br>
+		<a href="/signout"> Sign Out </a>
+	</div>
+	<div class="one">
+		<form action="/add" method="POST">
+			<input type="text" name="input_task" />
+			<br>
+			<input type="submit" value="Add Task" />
+		</form>
+		<ul>
+			<% tasks.each do |todo| %>
+			<% if todo.done %>
+				<li class="strikethrough"> 
+			<% else %>
+				<li>
+			<% end %>
+				<%= todo.task %>
+					<form action="/done" method="POST">
+						<input type="hidden" name="done_id" value="<%= todo.id %>">
+					<% if todo.done %>
+						<input type="submit" value="UnDone">
+					<% else %>
+						<input type="submit" value="Done">
+					<% end %>
+				</form>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	<style type="text/css">
+		.strikethrough {text-decoration: line-through;}	
+		.one{text-align: center;vertical-align: middle;}
+	</style>
+</body>
+</html>

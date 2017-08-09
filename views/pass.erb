@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In</title>
+</head>
+<body>
+	<div class="one">
+		<h1>Sign In</h1>
+		<form action="/pass" method="post">
+			<input type="hidden" name="user_id" value="<%= user_id %>">
+			Password<br>
+			<input type="password"  name="input_password" placeholder="Enter password" required><br>
+			<input type="submit" value="Login"><br>
+			<a href="/signin">Not you</a>
+		</form>
+	</div>
+	<style type="text/css">
+	.one{text-align: center;vertical-align: middle;}
+	</style>
+</body>
+</html>
